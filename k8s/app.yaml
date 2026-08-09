@@ -18,7 +18,8 @@ spec:
       - name: cloud-application
         image: container-registry.br-ne1.magalu.cloud/${MGC_REGISTRY_NAME}/cloud-application:${IMAGE_TAG}
         ports:
-        - containerPort: 8000
+        - name: http
+          containerPort: 8000
         env:
         - name: DATABASE_URL
           valueFrom:
@@ -49,5 +50,6 @@ spec:
   selector:
     app: cloud-application
   ports:
-  - port: 80
+  - name: http
+    port: 80
     targetPort: 8000
