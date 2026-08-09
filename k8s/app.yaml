@@ -19,6 +19,12 @@ spec:
         image: container-registry.br-ne1.magalu.cloud/${MGC_REGISTRY_NAME}/cloud-application:${IMAGE_TAG}
         ports:
         - containerPort: 8000
+        env:
+        - name: DATABASE_URL
+          valueFrom:
+            secretKeyRef:
+              name: db-secret
+              key: url
         livenessProbe:
           httpGet:
             path: /health
