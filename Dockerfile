@@ -7,6 +7,9 @@ RUN pip install poetry==1.8.3
 COPY pyproject.toml poetry.lock* ./
 RUN poetry config virtualenvs.create false && poetry install --without dev --no-root
 
+RUN useradd --create-home --uid 1000 appuser && chown -R appuser:appuser /app
+USER appuser
+
 COPY app/ ./app/
 
 EXPOSE 8000
