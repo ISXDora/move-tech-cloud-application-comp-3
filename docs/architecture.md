@@ -65,7 +65,7 @@ graph LR
 |---|---|---|
 | Disponibilidade | Erros 5xx e uptime das probes no Grafana | 99,5% mensal |
 | Latência | `histogram_quantile(0.95, ...)` do `/metrics` | P95 < 500 ms |
-| Escalabilidade | Teste de carga (k6) + `rate(http_requests_total)` | 300 req/s sem degradar |
+| Escalabilidade | Teste de carga (k6) + `rate(http_requests_total)` | 300 req/s sem degradar — [não atendido na configuração atual](load-test.md) |
 | Custo | Simulação na calculadora MGC (ver ADR 001) | Teto: R$ 250/mês |
 
 ## Estilo arquitetural
@@ -143,6 +143,7 @@ O comparativo com a alternativa não escolhida (MKS: ≈ R$ 535,60/mês, +160% p
 - [ADR 002 — DBaaS PostgreSQL](adr/002-dbaas-postgresql.md)
 - [ADR 003 — CI/CD com GitHub Actions](adr/003ci-cd.md)
 - [Teste de resiliência — evidências](./resilience-test.md)
+- [Teste de carga — validação dos RNFs](load-test.md)
 
 ## Referências
 
